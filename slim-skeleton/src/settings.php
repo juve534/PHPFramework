@@ -13,5 +13,13 @@ return [
             'name' => 'slim-app',
             'path' => __DIR__ . '/../logs/app.log',
         ],
+
+        // db接続情報
+        'db' => [
+            'host'   => 'localhost',
+            'user'   => 'ユーザ名',
+            'pass'   => 'パスワード',
+            'dbname' => 'DB名',
+        ]
     ],
 ];
