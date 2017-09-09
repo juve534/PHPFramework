@@ -20,7 +20,7 @@ $container['logger'] = function ($c) {
 
 // connect MySQL
 $container['db'] = function ($c) {
-    $dsn = 'mysql:host=%s;dbname=%s;charset=utf8mb4'
+    $dsn = 'mysql:host=%s;dbname=%s;charset=utf8mb4';
     $db  = $c['settings']['db'];
     $pdo = new PDO(sprintf($dsn, $db['host'], $db['dbname']),
         $db['user'], $db['pass']);
