@@ -28,3 +28,11 @@ $container['db'] = function ($c) {
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
 };
+
+// twitterクライアント
+use Abraham\TwitterOAuth\TwitterOAuth;
+$container['twitter'] = function ($c) {
+    $settings = $c->get('settings')['twitter'];
+    return new TwitterOAuth($settings['consumer_key'], $settings['consumer_secreat'], 
+        $settings['access_token'], $settings['access_token_secreat']);
+};

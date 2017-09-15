@@ -27,5 +27,11 @@ require __DIR__ . '/../src/routes.php';
 
 // Require blog routes
 require __DIR__ . '/../src/routes/blog.php';
+
+// Require blog routes
+require __DIR__ . '/../src/routes/twitter.php';
+
+require __DIR__ . '/../vendor/abraham/twitteroauth/autoload.php';
+
 // Run app
 $app->run();
