@@ -20,6 +20,14 @@ return [
             'user'   => 'ユーザ名',
             'pass'   => 'パスワード',
             'dbname' => 'DB名',
-        ]
+        ],
+
+        // TwitterAPI設定
+        'twitter' => [
+            'consumer_key'         => 'consumer_key',
+            'consumer_secreat'     => 'consumer_secreat',
+            'access_token'         => 'access_token',
+            'access_token_secreat' => 'access_token_secreat',
+        ],
     ],
 ];

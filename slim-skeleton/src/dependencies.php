@@ -20,11 +20,19 @@ $container['logger'] = function ($c) {
 
 // connect MySQL
 $container['db'] = function ($c) {
-    $dsn = 'mysql:host=%s;dbname=%s;charset=utf8mb4'
+    $dsn = 'mysql:host=%s;dbname=%s;charset=utf8mb4';
     $db  = $c['settings']['db'];
     $pdo = new PDO(sprintf($dsn, $db['host'], $db['dbname']),
         $db['user'], $db['pass']);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     return $pdo;
+};
+
+// twitterクライアント
+use Abraham\TwitterOAuth\TwitterOAuth;
+$container['twitter'] = function ($c) {
+    $settings = $c->get('settings')['twitter'];
+    return new TwitterOAuth($settings['consumer_key'], $settings['consumer_secreat'], 
+        $settings['access_token'], $settings['access_token_secreat']);
 };
