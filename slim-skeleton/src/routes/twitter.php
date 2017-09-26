@@ -3,11 +3,12 @@
  * Twitter用ルーティング設定
  */
 $app->get('/twitter/search/', function ($request, $response, $args) {
-    // Sample log message
     $params = [
         'q'     => '艦これ',
-        'count' => 5,
+        //'count' => 5,
     ];
-    $tweet = $this->twitter->get('search/tweets', $params);
-    var_dump($tweet);
+    $tweets = $this->twitter->get('search/tweets', $params);
+    var_dump($tweets->search_metadata->count);
+
+    var_dump($this->mackerel->getHost('HOST_ID'));
 });
