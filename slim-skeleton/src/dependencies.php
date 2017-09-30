@@ -1,6 +1,5 @@
 <?php
 // DIC configuration
-
 $container = $app->getContainer();
 
 // view renderer
@@ -18,7 +17,7 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
-// connect MySQL
+// DB接続
 $container['db'] = function ($c) {
     $dsn = 'mysql:host=%s;dbname=%s;charset=utf8mb4';
     $db  = $c['settings']['db'];
@@ -33,6 +32,15 @@ $container['db'] = function ($c) {
 use Abraham\TwitterOAuth\TwitterOAuth;
 $container['twitter'] = function ($c) {
     $settings = $c->get('settings')['twitter'];
-    return new TwitterOAuth($settings['consumer_key'], $settings['consumer_secreat'], 
+    return new TwitterOAuth($settings['consumer_key'], $settings['consumer_secreat'],
         $settings['access_token'], $settings['access_token_secreat']);
+};
+
+// mackerelクライアント
+$container['mackerel'] = function ($c) {
+    $settings = $c->get('settings')['mackerel'];
+    $client = new \Mackerel\Client([
+        'mackerel_api_key' => $settings['mackerel_api_key'],
+    ]);
+    return $client;
 };

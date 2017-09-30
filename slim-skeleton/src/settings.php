@@ -29,5 +29,10 @@ return [
             'access_token'         => 'access_token',
             'access_token_secreat' => 'access_token_secreat',
         ],
+
+        // mackerel設定
+        'mackerel' => [
+            'mackerel_api_key' => '',
+        ],
     ],
 ];
