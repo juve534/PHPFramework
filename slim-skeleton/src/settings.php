@@ -34,5 +34,11 @@ return [
         'mackerel' => [
             'mackerel_api_key' => '',
         ],
+
+        // redis設定
+        'redis' => [
+            'host' => '',
+            'port' => '',
+        ],
     ],
 ];
