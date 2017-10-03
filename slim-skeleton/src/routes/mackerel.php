@@ -28,7 +28,7 @@ $app->get('/mackerel/twitter/dmm/', function () {
         'hostId' => $host->id,
         'time' => time(),
         'name' => 'metric.twitter.検索ワード',
-        'value' => $tweets->search_metadata->count,
+        'value' => $count,
     ];
     $this->mackerel->postMetrics([$metric]);
     echo sprintf("Get Twitter Count : %d¥nSet Mackerel Count : %d¥n", $tweets->search_metadata->count, $count);
