@@ -27,7 +27,7 @@ $app->get('/mackerel/twitter/dmm/', function () {
     $metric = [
         'hostId' => $host->id,
         'time' => time(),
-        'name' => 'metric.twitter.検索ワード',
+        'name' => 'custom.metric.twitter.検索ワード',
         'value' => $count,
     ];
     $this->mackerel->postMetrics([$metric]);
