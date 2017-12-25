@@ -16,29 +16,23 @@ return [
 
         // db接続情報
         'db' => [
-            'host'   => 'localhost',
-            'user'   => 'ユーザ名',
-            'pass'   => 'パスワード',
-            'dbname' => 'DB名',
+            'host'   => getenv('DB_HOST'),
+            'user'   => getenv('DB_USER'),
+            'pass'   => getenv('DB_PASS'),
+            'dbname' => getenv('DB_NAME'),
         ],
 
         // TwitterAPI設定
         'twitter' => [
-            'consumer_key'         => 'consumer_key',
-            'consumer_secreat'     => 'consumer_secreat',
-            'access_token'         => 'access_token',
-            'access_token_secreat' => 'access_token_secreat',
+            'consumer_key'         => getenv('TWITTER_CONSUMER_KEY'),
+            'consumer_secreat'     => getenv('TWITTER_CONSUMER_SECRET'),
+            'access_token'         => getenv('TWITTER_ACCESS_TOKEN'),
+            'access_token_secreat' => getenv('TWITTER_ACCESS_TOKEN_SECRET'),
         ],
 
         // mackerel設定
         'mackerel' => [
-            'mackerel_api_key' => '',
-        ],
-
-        // redis設定
-        'redis' => [
-            'host' => '',
-            'port' => '',
+            'mackerel_api_key' => getenv('MACKEREL_API_KEY'),
         ],
     ],
 ];
