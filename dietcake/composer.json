@@ -1,0 +1,29 @@
+{
+    "name": "dietcake/spongecake",
+    "description": "dietcake sample",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tatsuya Tsuruoka",
+            "email": "ttsuruoka@php.net",
+            "homepage": "https://github.com/ttsuruoka"
+        },
+        {
+            "name": "halt",
+            "homepage": "https://github.com/ha1t"
+        },
+        {
+            "name": "Kiryu Tsukimiya",
+            "email": "tsukimiya@gmail.com",
+            "homepage": "https://github.com/tsukimiya"
+        }
+    ],
+    "require-dev": {
+        "filp/whoops": "dev-master"
+    },
+    "require" :{
+        "twbs/bootstrap": "3.0.*@dev",
+        "dietcake/dietcake": "dev-master",
+        "ttsuruoka/php-simple-dbi": "dev-master"
+    }
+}
