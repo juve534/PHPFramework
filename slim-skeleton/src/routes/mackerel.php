@@ -4,8 +4,9 @@
 */
 $app->get('/mackerel/twitter/dmm/', function () {
     // TwitterAPIを実行
+    $search = getenv('TWITTER_SEARCH_WORD');
     $params = [
-        'q'     => '検索ワード',
+        'q'     => $search,
         'count' => 100,
     ];
     $tweets = $this->twitter->get('search/tweets', $params);
@@ -23,7 +24,8 @@ $app->get('/mackerel/twitter/dmm/', function () {
     }
 
     // Mackerelにカウント数を登録
-    $host = $this->mackerel->getHost('HOST_ID');
+    $hostId = getenv('MACKEREL_HOST_ID');
+    $host   = $this->mackerel->getHost($hostId);
     $metric = [
         'hostId' => $host->id,
         'time' => time(),
@@ -32,4 +34,14 @@ $app->get('/mackerel/twitter/dmm/', function () {
     ];
     $this->mackerel->postMetrics([$metric]);
     echo sprintf("Get Twitter Count : %d¥nSet Mackerel Count : %d¥n", $tweets->search_metadata->count, $count);
+});
+
+$app->get('/twitter/search/', function () {
+    $search = getenv('TWITTER_SEARCH_WORD');
+    $params = [
+        'q'     => $search,
+        'count' => 5,
+    ];
+    $tweets = $this->twitter->get('search/tweets', $params);
+    var_dump($tweets);
 });

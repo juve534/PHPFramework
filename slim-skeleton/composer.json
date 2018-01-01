@@ -17,6 +17,13 @@
         "slim/php-view": "^2.0",
         "monolog/monolog": "^1.17",
         "abraham/twitteroauth": "^0.7.4",
-        "ariarijp/mackerel-client": "dev-master"
+        "ariarijp/mackerel-client": "dev-master",
+        "react/react": "^0.4.2",
+        "vlucas/phpdotenv": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "src/Controllers/"
+        }
     }
 }
